@@ -1,0 +1,15 @@
+{
+    "express": {
+      "port": 2222
+    },
+    "mysql": {
+        "host": "localhost",
+        "user": "user",
+        "password": "password",
+        "database": "database",
+        "port": "3204"
+    },
+    "jwt":{
+        "secret": "secret"
+    }
+  }
