@@ -19,10 +19,6 @@ Las principales librerías utilizadas en NodeJS son las siguientes:
 
 Para instalar el servidor Back-End, es necesario montar la base de datos y el servidor Express.
 
-
-
-## Instalación servidor Express 
-
 1. Para iniciar la instalación debes clonar el repositorio en una dirección local. 
 
 2. Montar la base de datos MySQL utilizando el script `/ISA-BACK/bd/bd_script.sql`, recomendamos utilizar un [contenedor mysql de docker](https://hub.docker.com/_/mysql), debido a su simplicidad y ejecutar el script correspondiente.
