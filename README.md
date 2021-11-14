@@ -24,7 +24,7 @@ Para instalar el servidor Back-End, es necesario montar la base de datos y el se
 
 1. Para iniciar la instalación debes clonar el repositorio en una dirección local. 
 
-2. Montar la base de datos MySQL utilizando el script `/ISA-BACK/bd/bd_script.sql`, recomendamos utilizar un [![contenedor mysql de docker]](https://hub.docker.com/_/mysql), debido a su simplicidad y ejecutar el script correspondiente.
+2. Montar la base de datos MySQL utilizando el script `/ISA-BACK/bd/bd_script.sql`, recomendamos utilizar un [contenedor mysql de docker](https://hub.docker.com/_/mysql), debido a su simplicidad y ejecutar el script correspondiente.
 
 3. Es necesario crear una configuración de las variables de entorno, para ello se debe crear un archivo `config.json` en la raiz, se debe utilizar como ejemplo el archivo `config.example.json`.
 
