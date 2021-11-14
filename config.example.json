@@ -10,6 +10,7 @@
         "port": "3204"
     },
     "jwt":{
-        "secret": "secret"
+        "secret_token": "secret1",
+        "secret_password": "secret2"
     }
   }

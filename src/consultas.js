@@ -4,6 +4,7 @@ const { JsonWebTokenError } = require('jsonwebtoken');
 const { Interface } = require('readline');
 const mysql = require('mysql2');
 let config = require('./config'); 
+const jwt = require('jsonwebtoken');
 
 const connection = mysql.createConnection({
     host: config.mysql.host,
@@ -32,7 +33,7 @@ const connection = mysql.createConnection({
    */
   async function insertar_usuario(username, password, email)
   { try
-    {   await bd.query(connection, "insert into usuario (username, password, email) values ('"+username+"', '"+password+"', '"+email+"')");
+    {   await bd.query(connection, "insert into usuario (username, password, email) values ('"+username+"', '"+jwt.sign({password: password}, config.jwt.secret_password)+"', '"+email+"')");
         return(true);
     }
     catch(err)
@@ -48,7 +49,7 @@ const connection = mysql.createConnection({
    */
   async function validar_usuario(username, password)
   {try
-    {   res = await bd.query(connection, "select 1 from usuario where username= '"+username+"' AND password='"+password+"'");
+    {   res = await bd.query(connection, "select 1 from usuario where username= '"+username+"' AND password='"+jwt.sign({password: password}, config.jwt.secret_password)+"'");
         if(JSON.stringify(res) != "[]") return true;
         else return false;
        
