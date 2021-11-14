@@ -36,7 +36,7 @@ app.post('/login', async (req, res) => {
         var resultado = await bd.validar_usuario(username, password);
 
         if(resultado)
-        {   const token = jwt.sign({username: req.body.username}, config.jwt.secret_token);
+        {   const token = jwt.sign({username: req.body.username}, config.jwt.secret);
             res.send({message: "Login correcto!", token: token});
         }
         else
@@ -282,8 +282,8 @@ app.get('/get-roles', async (req, res) => {
  */
 async function verify_jwt_token(token)
 {   try
-    {   console.log(jwt.verify(token, config.jwt.secret_token));
-        return bd.validar_username(jwt.verify(token, config.jwt.secret_token).username);
+    {   console.log(jwt.verify(token, config.jwt.secret));
+        return bd.validar_username(jwt.verify(token, config.jwt.secret).username);
     }
     catch(err)
     {   console.log("Error en la función (verify_jwt_token) módulo index: ", err);
@@ -296,7 +296,7 @@ async function verify_jwt_token(token)
  */
 async function jwt_get_username(token)
 {   try
-    {   return jwt.verify(token, config.jwt.secret_token).username;
+    {   return jwt.verify(token, config.jwt.secret).username;
     }
     catch(err)
     {   console.log("Error en la función (verify_jwt_token) módulo index: ", err);

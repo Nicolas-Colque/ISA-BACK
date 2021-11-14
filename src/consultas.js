@@ -4,7 +4,8 @@ const { JsonWebTokenError } = require('jsonwebtoken');
 const { Interface } = require('readline');
 const mysql = require('mysql2');
 let config = require('./config'); 
-const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+
 
 const connection = mysql.createConnection({
     host: config.mysql.host,
@@ -33,7 +34,8 @@ const connection = mysql.createConnection({
    */
   async function insertar_usuario(username, password, email)
   { try
-    {   await bd.query(connection, "insert into usuario (username, password, email) values ('"+username+"', '"+jwt.sign({password: password}, config.jwt.secret_password)+"', '"+email+"')");
+    {   password = await crypto.createHmac('sha256', config.crypto.secret).update(password).digest('hex');
+        await bd.query(connection, "insert into usuario (username, password, email) values ('"+username+"', '"+password+"', '"+email+"')");
         return(true);
     }
     catch(err)
@@ -49,7 +51,8 @@ const connection = mysql.createConnection({
    */
   async function validar_usuario(username, password)
   {try
-    {   res = await bd.query(connection, "select 1 from usuario where username= '"+username+"' AND password='"+jwt.sign({password: password}, config.jwt.secret_password)+"'");
+    {   password = await crypto.createHmac('sha256', config.crypto.secret).update(password).digest('hex');
+        res = await bd.query(connection, "select 1 from usuario where username= '"+username+"' AND password='"+password+"'");
         if(JSON.stringify(res) != "[]") return true;
         else return false;
        

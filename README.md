@@ -4,10 +4,11 @@ Proyecto creado para la asignatura de Ingeniería de Software Avanzada de la Uni
 
 Las principales librerías utilizadas en NodeJS son las siguientes:
 
-* Express.
-* mysql2.
-* mysql-async-simple.
-* jsonwebtoken.
+* express
+* mysql2
+* mysql-async-simple
+* jsonwebtoken
+* crypto
 
 # Requerimientos
 
@@ -26,7 +27,7 @@ Para instalar el servidor Back-End, es necesario montar la base de datos y el se
 
 2. Montar la base de datos MySQL utilizando el script `/ISA-BACK/bd/bd_script.sql`, recomendamos utilizar un [contenedor mysql de docker](https://hub.docker.com/_/mysql), debido a su simplicidad y ejecutar el script correspondiente.
 
-3. Es necesario crear una configuración de las variables de entorno, para ello se debe crear un archivo `config.json` en la raiz, se debe utilizar como ejemplo el archivo `config.example.json`.
+3. Es necesario crear una configuración inicial de las variables de entorno, para ello se debe crear un archivo `config.json` en la raiz, se debe utilizar como ejemplo el archivo `config.example.json`.
 
 4. Dentro del repositorio, se debe ejecutar el comando`npm install --production`. Si quieres desarrollar y re-construir el código javascript y los otros archivos utiliza `npm install`.
 

@@ -1,6 +1,6 @@
 {
     "express": {
-      "port": 2222
+        "port": 2222
     },
     "mysql": {
         "host": "localhost",
@@ -10,7 +10,9 @@
         "port": "3204"
     },
     "jwt":{
-        "secret_token": "secret1",
-        "secret_password": "secret2"
+        "secret": "secret"
+    },
+    "crypto":{
+        "secret": "secret"
     }
   }
